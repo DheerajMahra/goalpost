@@ -1,0 +1,66 @@
+.Feed {
+    flex-grow: 1;
+    display: flex;
+}
+
+@media (max-width: 600px) {
+    .Feed {
+        flex-direction: column;
+    }
+}
+
+.Stats__card {
+    align-self: flex-start;
+    background: var(--color-white);
+    border-radius: var(--border-radius);
+    padding: 2.2rem 2rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 3rem;
+}
+
+.Stats__tag {
+    color: var(--color-purple-m);
+    background: var(--color-purple-l);
+    display: inline-block;
+    padding: .3rem .7rem;
+    border-radius: .4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
+
+.Stats__head {
+    font-size: 2.2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.Stats__body {
+    font-size: 1.25rem;
+    color: var(--color-grey);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.Stats__info {
+    display: flex;
+}
+
+.Stats__info-goal {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-purple-m);
+    background: var(--color-purple-l);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.Goal-total {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: .6rem;
+}
+
+.Goal-text {
+    font-size: 1.5rem;
+}

@@ -1,0 +1,19 @@
+.Posts {
+    flex: 0 0 70%;
+    min-height: 100vh;
+    margin-right: 3rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+@media (max-width: 600px) {
+    .Posts {
+        order: 1;
+        margin-right: 0rem;
+    }
+}

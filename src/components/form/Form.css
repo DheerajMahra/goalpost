@@ -1,0 +1,99 @@
+.Form-wrap {
+    flex: 0 0 70%;
+    margin-right: 3rem;
+    background: var(--color-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+@media (max-width: 600px) {
+    .Form-wrap {
+        margin-right: 0;
+        margin-bottom: 3rem;
+    }
+}
+
+.Form-thumb {
+    position: relative;
+    height: 15rem;
+    color: var(--color-coffee-d);
+    background: var(--color-coffee-l);
+    border-radius: var(--border-radius);
+    margin: .7rem;
+    background-image: url('../../img/mann.png');
+    background-repeat: no-repeat;
+    background-size: 30%;
+    background-position: 90% 50%;
+}   
+
+@media (max-width: 425px) {
+    .Form-thumb {
+        background-size: 60%;
+        background-position: 100% -50%;
+    }
+}
+
+.Thumb__wrap {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5%;
+}
+
+.Thumb__head {
+    font-size: 2.7rem;
+    font-weight: 400;
+    margin-bottom: .5rem;
+}
+
+.Thumb__body {
+    font-size: 1.4rem;
+}
+
+.Form {
+    padding: 2rem;
+}
+
+.Form-group {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.Form-label {
+    display: inline-block;
+    padding: 0 .4rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-purple-m);
+    background: var(--color-white);
+    position: absolute;
+    left: 1.6rem;
+    top: -.7rem;
+}
+
+.Form-input, .Form-textarea {
+    display: block;
+    width: 100%;
+    padding: 1.1rem 2rem;
+    font-size: 1.4rem;
+    border: .1rem solid var(--color-purple-m);
+    border-radius: .7rem;
+}
+
+.Form-textarea{
+    resize: none;
+    height: 10rem;
+    font-size: 1.43rem;
+    font-family: inherit;
+}
+
+.Form-input:focus, .Form-textarea:focus {
+    outline: none;
+}
+
+.Form__error {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--color-red);
+}

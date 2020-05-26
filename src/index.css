@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+    /*Color palette*/
+    --color-bg: #f1f3fb;
+    --color-white: #ffffff;
+    --color-grey: #818488;
+    --color-pink: #f6c2ff;
+    --color-red: #f54949;
+
+    --color-coffee-l: #feeae6;
+    --color-coffee-m: #fbc8bf;
+    --color-coffee-d: #6b463d;
+
+    --color-purple-l: #f1efff;
+    --color-purple-m: #6658d3;
+    --color-purple-d: #333558;
+
+    --color-green-l: #b2fcec;
+    --color-green-d: #1dcac4;
+
+    --border-radius: 2rem;
+    --shadow: 0rem 2rem 5rem rgba(0, 0, 0, .1);
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.3;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
