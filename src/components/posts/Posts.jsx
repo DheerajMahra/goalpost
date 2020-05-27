@@ -7,7 +7,10 @@ import PostItem from './post-item/PostItem'
 
 const Posts = props => {
 
-    const { users, updateLikes, isLoading } = props
+    const { users, tags, updateLikes, isLoading } = props
+
+    console.log('[Post.jsx] RENDERED')
+    console.log(users, tags)
 
     return (
         <div className="Posts">
@@ -22,6 +25,7 @@ const Posts = props => {
                     fullname={user.fullname}
                     goal={user.goal}
                     likes={user.likes}
+                    tag={user.tag}
                     createdAt={user.createdAt}
                     updateLikes={updateLikes}
                 />

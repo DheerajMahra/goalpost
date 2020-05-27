@@ -7,6 +7,10 @@
     animation: fadeIn .5s ease-in;
 }
 
+.Post:last-child {
+    margin-bottom: 1rem;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -85,4 +89,16 @@
 .Post__likes {
     font-size: 1.2rem;
     font-weight: 600;
+}
+
+.Post__tag {
+    position: absolute;
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: .7rem 1.1rem;
+    color: var(--color-purple-m);
+    background: var(--color-white);
+    border: .1rem solid var(--color-purple-m);
+    border-radius: 1rem;
+    left: 11.5%;
 }

@@ -71,7 +71,7 @@
     top: -.7rem;
 }
 
-.Form-input, .Form-textarea {
+.Form-input, .Form-textarea, .Form-select {
     display: block;
     width: 100%;
     padding: 1.1rem 2rem;
@@ -87,7 +87,12 @@
     font-family: inherit;
 }
 
-.Form-input:focus, .Form-textarea:focus {
+.Form-select {
+    background: var(--color-white);
+    padding-left: 1.5rem;
+}
+
+.Form-input:focus, .Form-textarea:focus, .Form-select:focus {
     outline: none;
 }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import './Form.css'
 import db from '../../config/firebase'
+import _ from 'lodash'
 import { withRouter } from 'react-router-dom'
 
 import Button from '../shared/button/Button'
@@ -10,7 +11,23 @@ class Form extends React.Component {
     state = {
         fullname: '',
         goal: '',
-        isError: false
+        tag: '',
+        isError: false,
+        availableTags: []
+    }
+
+    componentDidMount() {
+        this.fetchTags()
+    }
+
+    fetchTags = () => {
+        const tagsRef = db.ref().child('/tags')
+
+        tagsRef.once('value', snap => {
+            this.setState({
+                availableTags: _.values(snap.val())
+            })
+        })
     }
 
     handleChange = e => {
@@ -19,15 +36,27 @@ class Form extends React.Component {
         })
     }
 
+    handleTagChange = e => {
+        this.setState({
+            tag: e.target.value
+        })
+    }
+
     storeUserData = (userNode, data) => {
+
         userNode.set(data, err => {
+
             if(err) { alert(err) }
+
             else {
+                //save to db success. Init state again
                 this.setState({ 
                     fullname: '',
                     goal: '',
+                    tag: '',
                     isError: false
                 })
+
                 this.props.history.push('/feed')
             }
         })
@@ -40,7 +69,7 @@ class Form extends React.Component {
     handleSubmit = e => {
         e.preventDefault()
 
-        let { fullname, goal } = this.state
+        let { fullname, goal, tag } = this.state
 
         if(this.checkValidity(fullname, goal)) {
 
@@ -51,6 +80,7 @@ class Form extends React.Component {
                 fullname,
                 goal,
                 likes: 0,
+                tag,
                 createdAt: Date.now()   
             }
 
@@ -61,6 +91,7 @@ class Form extends React.Component {
     }
 
     render() {
+
         return (
             <div className="Form-wrap">
 
@@ -100,10 +131,37 @@ class Form extends React.Component {
                             onChange={this.handleChange}>
                         </textarea>
                     </div>
+
+                    <div className="Form-group">
+                        <label
+                            className="Form-label"
+                        >Select tag</label>
+                        <select 
+                            className="Form-select"
+                            value={this.state.tag}
+                            onChange={this.handleTagChange}
+                        >
+                        <option
+                            defaultValue
+                            value=""
+                        >Nothing selected</option>
+                        {
+                            this.state.availableTags.map(tag => (
+                                <option
+                                    key={tag.id}
+                                    value={tag.id}
+                                >{tag.text}
+                                </option>
+                            ))
+                        }
+                        </select>
+                    </div>
+
                     {
                         this.state.isError &&
-                        <p className="Form__error">*All fields are required.</p>
+                        <p className="Form__error">Fullname and goal are required.</p>
                     }
+
                     <Button click={this.handleSubmit}>Post your goal</Button>
 
                 </form>

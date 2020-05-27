@@ -1,5 +1,6 @@
 import React from 'react'
 import './Feed.css'
+import _ from 'lodash'
 import db from '../../config/firebase.js'
 import moment from 'moment'
 
@@ -9,23 +10,50 @@ class Feed extends React.Component {
 
     state = {
         users: {},
+        tags: {},
         totalCount: 0,
         isLoading: true
     }
     
     componentDidMount() {
-        let usersRef = db.ref().child('/users')
 
-        //Fetch users from db
+        this.fetchUsers()
+        this.fetchTags()
+        this.addChangeListener()
+    }
+
+    fetchTags = () => {
+        const tagsRef = db.ref().child('/tags')
+
+        tagsRef.once('value', snap => {
+            this.setState({ tags: snap.val() })
+        })
+    }
+
+    fetchUsers = () => {
+        const usersRef = db.ref().child('/users')
+        
         usersRef.on('child_added', snap => {
+
             this.setState(prevState => ({
                 users: {[snap.val().id]: snap.val(), ...prevState.users},
                 totalCount: ++prevState.totalCount,
                 isLoading: false
             }))
         })
+    }
 
-        //Attach change listener for ui update on likes
+    updateLikes = userId => {
+        const userRef = db.ref().child(`/users/${userId}`)
+
+        userRef.child('/likes').once('value', oldLikes => {
+            userRef.update({ likes: oldLikes.val() + 1 })
+        })
+    }
+
+    addChangeListener = () => {
+        const usersRef = db.ref().child('/users')
+        //listener for ui update on likes
         usersRef.on('child_changed', snap => {
             this.setState(prevState => ({
                 users: {
@@ -34,27 +62,18 @@ class Feed extends React.Component {
                 }
             }))
         })
-
-    }
-
-    //likes updated logic
-    handleUpdateLikes = userId => {
-        let userRef = db.ref().child(`/users/${userId}`)
-
-        userRef.child('/likes').once('value', oldLikes => {
-            userRef.update({ likes: oldLikes.val() + 1 })
-        })
     }
 
     render(){
-
+        console.log('[Feed.jsx] RENDERED')
         return (
             
             <div className="Feed">
 
                 <Posts
                     users={this.state.users}
-                    updateLikes={this.handleUpdateLikes}
+                    tags={this.state.tags}
+                    updateLikes={this.updateLikes}
                     isLoading={this.state.isLoading}
                 />
 
