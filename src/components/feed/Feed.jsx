@@ -37,7 +37,7 @@ class Feed extends React.Component {
 
             this.setState(prevState => ({
                 users: {[snap.val().id]: snap.val(), ...prevState.users},
-                totalCount: ++prevState.totalCount,
+                totalCount: snap.numChildren(),
                 isLoading: false
             }))
         })
