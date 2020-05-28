@@ -9,8 +9,7 @@ const Posts = props => {
 
     const { users, tags, updateLikes, isLoading } = props
 
-    console.log('[Post.jsx] RENDERED')
-    console.log(users, tags)
+    //console.log('[Post.jsx] RENDERED')
 
     return (
         <div className="Posts">
@@ -21,12 +20,8 @@ const Posts = props => {
             _.values(users).map(user => (
                 <PostItem
                     key={user.id}
-                    id={user.id}
-                    fullname={user.fullname}
-                    goal={user.goal}
-                    likes={user.likes}
-                    tag={user.tag}
-                    createdAt={user.createdAt}
+                    { ...user }
+                    tag={user.tag !== '-1' && tags[user.tag].text}
                     updateLikes={updateLikes}
                 />
             ))

@@ -7,7 +7,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons'
 const PostItem = props => {
 
     const { id, fullname, goal, likes, tag, createdAt, updateLikes } = props
-    console.log('[PostItem.jsx] RENDERED')
+    //console.log('[PostItem.jsx] RENDERED')
     return (
         <div className="Post">
             <div className="Post__head">
@@ -16,11 +16,15 @@ const PostItem = props => {
                 <p className="Post__time">{moment(createdAt).fromNow()}</p>
             </div>
             <div className="Post__body">{goal}</div>
-            <div className="Post__icon-box" onClick={() => updateLikes(id)}>
-                <FontAwesomeIcon className="Post__icon" icon={faHeart} />
-                <span className="Post__likes">{likes}</span>
+            <div className="Post__extras">
+                <div className="Post__icon-box" onClick={() => updateLikes(id)}>
+                    <FontAwesomeIcon className="Post__icon" icon={faHeart} />
+                    <span className="Post__likes">{likes}</span>
+                </div>
+                {
+                    tag && <span className="Post__tag">{tag}</span>
+                }
             </div>
-            <span className="Post__tag">{tag}</span>
         </div>
     )
 }

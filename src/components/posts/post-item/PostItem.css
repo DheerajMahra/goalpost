@@ -61,12 +61,22 @@
     margin-bottom: 2rem;
 }
 
-.Post__icon-box {
+.Post__extras {
+    display: flex;
     position: absolute;
+}
+
+.Post__icon-box, .Post__tag {
+    font-size: 1.25rem;
+    font-weight: 600;
     padding: .7rem 1.1rem;
     background: var(--color-white);
     border: .1rem solid var(--color-purple-m);
     border-radius: 1rem;
+}
+
+.Post__icon-box {
+    margin-right: 1rem;
     cursor: pointer;
     transition: .1s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
@@ -87,18 +97,9 @@
 }
 
 .Post__likes {
-    font-size: 1.2rem;
     font-weight: 600;
 }
 
 .Post__tag {
-    position: absolute;
-    font-size: 1.25rem;
-    font-weight: 600;
-    padding: .7rem 1.1rem;
     color: var(--color-purple-m);
-    background: var(--color-white);
-    border: .1rem solid var(--color-purple-m);
-    border-radius: 1rem;
-    left: 11.5%;
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 import './Feed.css'
-import _ from 'lodash'
 import db from '../../config/firebase.js'
 import moment from 'moment'
 
@@ -8,43 +7,60 @@ import Posts from '../posts/Posts'
 
 class Feed extends React.Component {
 
-    state = {
-        users: {},
-        tags: {},
-        totalCount: 0,
-        isLoading: true
+    constructor(props) {
+        super(props)
+
+        this.usersRef = db.ref().child('/users')
+        this.tagsRef = db.ref().child('/tags')
+
+        this.state = {
+            users: {},
+            tags: {},
+            totalCount: 0,
+            isLoading: true
+        }
     }
     
     componentDidMount() {
 
-        this.fetchUsers()
         this.fetchTags()
+        this.fetchUsers()
         this.addChangeListener()
+
+        db.ref().child('/tags').set({
+            0: {
+                id:0, text: "Angular"
+            },
+            1: {
+                id: 1, text: "Vue"
+            },
+            2: {
+                id: 2, text: "React"
+            }
+        })
     }
 
     fetchTags = () => {
-        const tagsRef = db.ref().child('/tags')
 
-        tagsRef.once('value', snap => {
+        this.tagsRef.once('value', snap => {
             this.setState({ tags: snap.val() })
         })
     }
 
     fetchUsers = () => {
-        const usersRef = db.ref().child('/users')
         
-        usersRef.on('child_added', snap => {
+        this.userAddedListener = this.usersRef.on('child_added', snap => {
 
             this.setState(prevState => ({
                 users: {[snap.val().id]: snap.val(), ...prevState.users},
-                totalCount: snap.numChildren(),
+                totalCount: ++prevState.totalCount,
                 isLoading: false
             }))
         })
     }
 
     updateLikes = userId => {
-        const userRef = db.ref().child(`/users/${userId}`)
+        let userRef = db.ref().child(`/users/${userId}`)
 
         userRef.child('/likes').once('value', oldLikes => {
             userRef.update({ likes: oldLikes.val() + 1 })
@@ -52,9 +68,8 @@ class Feed extends React.Component {
     }
 
     addChangeListener = () => {
-        const usersRef = db.ref().child('/users')
         //listener for ui update on likes
-        usersRef.on('child_changed', snap => {
+        this.userChangedListener = this.usersRef.on('child_changed', snap => {
             this.setState(prevState => ({
                 users: {
                     ...prevState.users,
@@ -64,8 +79,13 @@ class Feed extends React.Component {
         })
     }
 
+    componentWillUnmount() {
+        this.usersRef.off('child_added', this.userAddedListener)
+        this.usersRef.off('child_changed', this.userChangedListener)
+    }
+
     render(){
-        console.log('[Feed.jsx] RENDERED')
+        //console.log('[Feed.jsx] RENDERED')
         return (
             
             <div className="Feed">

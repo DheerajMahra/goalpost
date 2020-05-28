@@ -11,7 +11,7 @@ class Form extends React.Component {
     state = {
         fullname: '',
         goal: '',
-        tag: '',
+        tag: '-1',
         isError: false,
         availableTags: []
     }
@@ -143,7 +143,7 @@ class Form extends React.Component {
                         >
                         <option
                             defaultValue
-                            value=""
+                            value="-1"
                         >Nothing selected</option>
                         {
                             this.state.availableTags.map(tag => (
