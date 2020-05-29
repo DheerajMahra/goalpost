@@ -1,4 +1,4 @@
-.Form-thumb {
+.ImgBanner {
     position: relative;
     height: 15rem;
     margin-bottom: 2.3rem;
@@ -11,25 +11,8 @@
 }   
 
 @media (max-width: 425px) {
-    .Form-thumb {
+    .ImgBanner {
         background-size: 60%;
         background-position: 100% -50%;
     }
-}
-
-.Thumb__wrap {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 5%;
-}
-
-.Thumb__head {
-    font-size: 2.7rem;
-    font-weight: 400;
-    margin-bottom: .5rem;
-}
-
-.Thumb__body {
-    font-size: 1.4rem;
 }

@@ -14,19 +14,19 @@ const PostItem = props => {
     //console.log('[PostItem.jsx] RENDERED')
     return (
         <div className="Post">
-            <div className="Post__head">
-                <img className="Post__userimg" src="https://www.kindpng.com/picc/m/78-786207_user-avatar-png-user-avatar-icon-png-transparent.png" alt="img" width="30" />
-                <p className="Post__username">{fullname}</p>
-                <p className="Post__time">{format(moment(createdAt).fromNow())}</p>
+            <div className="Post__Head">
+                <img className="Post__UserImg" src="https://www.kindpng.com/picc/m/78-786207_user-avatar-png-user-avatar-icon-png-transparent.png" alt="user" width="30" />
+                <p className="Post__Username">{fullname}</p>
+                <p className="Post__Time">{format(moment(createdAt).fromNow())}</p>
             </div>
-            <div className="Post__body">{goal}</div>
-            <div className="Post__extras">
-                <div className="Post__icon-box" onClick={() => updateLikes(id)}>
-                    <FontAwesomeIcon className="Post__icon" icon={faHeart} />
-                    <span className="Post__likes">{likes}</span>
+            <div className="Post__Body">{goal}</div>
+            <div className="Post__Extras">
+                <div className="Post__IconBox" onClick={() => updateLikes(id)}>
+                    <FontAwesomeIcon className="Post__Icon" icon={faHeart} />
+                    <span className="Post__Likes">{likes}</span>
                 </div>
                 {
-                    tag && <span className="Post__tag">{tag}</span>
+                    tag && <span className="Post__Tag">{tag}</span>
                 }
             </div>
         </div>

@@ -2,7 +2,6 @@ import React from 'react'
 import './Feed.css'
 import db from '../../config/firebase.js'
 import moment from 'moment'
-
 import Posts from '../../components/posts/Posts'
 
 class Feed extends React.Component {
@@ -106,19 +105,19 @@ class Feed extends React.Component {
                     noGoals={this.state.noGoals}
                 />
 
-                <div className="Stats">
+                <div className="Feed__Stats">
                     
-                    <div className="Stats__card">
-                        <div className="Stats__tag">{moment().format('dddd')}</div>
-                        <h2 className="Stats__head">{moment().format("MMM Do[,] YYYY")}</h2>
-                        <p className="Stats__body">Goalpost tracks your goal for the day so that people can see what you are working on today.</p>
-                        <div className="Stats__info">
-                            <p className="Stats__info-goal">
-                                <span className="Goal-total">{this.state.totalCount}</span>
-                                <span className="Goal-text">Goals commited</span>
-                            </p>
-                        </div>
+                <div className="StatsCard">
+                    <span className="StatsCard__Tag">{moment().format('dddd')}</span>
+                    <h2 className="StatsCard__Head">{moment().format("MMM Do[,] YYYY")}</h2>
+                    <p className="StatsCard__Body">Goalpost tracks your goal for the day so that people can see what you are working on today.</p>
+                    <div className="StatsCard__Info">
+                        <p className="InfoGoal">
+                            <span className="InfoGoal__Total">{this.state.totalCount}</span>
+                            <span className="InfoGoal__Text">Goals commited</span>
+                        </p>
                     </div>
+                </div>
 
                 </div>
 

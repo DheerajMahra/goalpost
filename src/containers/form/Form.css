@@ -1,4 +1,4 @@
-.Form-wrap {
+.FormBox{
     flex: 0 0 70%;
     margin-right: 3rem;
     padding: 2rem;
@@ -8,18 +8,18 @@
 }
 
 @media (max-width: 600px) {
-    .Form-wrap {
+    .FormBox{
         margin-right: 0;
         margin-bottom: 3rem;
     }
 }
 
-.Form-group {
+.Form__Group {
     position: relative;
     margin-bottom: 2rem;
 }
 
-.Form-label {
+.Form__Label {
     display: inline-block;
     padding: 0 .4rem;
     font-size: 1.15rem;
@@ -31,7 +31,7 @@
     top: -.7rem;
 }
 
-.Form-input, .Form-textarea, .Form-select {
+.Form__Input, .Form__Textarea, .Form__Select {
     display: block;
     width: 100%;
     padding: 1.1rem 2rem;
@@ -40,23 +40,23 @@
     border-radius: .7rem;
 }
 
-.Form-textarea{
+.Form__Textarea{
     resize: none;
     height: 10rem;
     font-size: 1.43rem;
     font-family: inherit;
 }
 
-.Form-select {
+.Form__Select {
     background: var(--color-white);
     padding-left: 1.5rem;
 }
 
-.Form-input:focus, .Form-textarea:focus, .Form-select:focus {
+.Form__Input:focus, .Form__Textarea:focus, .Form__Select:focus {
     outline: none;
 }
 
-.Form__error {
+.Form__Error {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 1.5rem;

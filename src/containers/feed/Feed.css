@@ -9,7 +9,7 @@
     }
 }
 
-.Stats__card {
+.StatsCard {
     align-self: flex-start;
     background: var(--color-white);
     border-radius: var(--border-radius);
@@ -18,7 +18,7 @@
     margin-bottom: 3rem;
 }
 
-.Stats__tag {
+.StatsCard__Tag {
     color: var(--color-purple-m);
     background: var(--color-purple-l);
     display: inline-block;
@@ -29,24 +29,24 @@
     margin-right: 1rem;
 }
 
-.Stats__head {
+.StatsCard__Head {
     font-size: 2.2rem;
     font-weight: 400;
     margin-bottom: 1rem;
 }
 
-.Stats__body {
+.StatsCard__Body {
     font-size: 1.25rem;
     color: var(--color-grey);
     line-height: 1.5;
     margin-bottom: 2rem;
 }
 
-.Stats__info {
+.StatsCard__Info {
     display: flex;
 }
 
-.Stats__info-goal {
+.InfoGoal {
     display: flex;
     flex-direction: column;
     color: var(--color-purple-m);
@@ -55,12 +55,12 @@
     border-radius: 1rem;
 }
 
-.Goal-total {
+.InfoGoal__Total {
     font-size: 2.2rem;
     font-weight: 600;
     margin-bottom: .6rem;
 }
 
-.Goal-text {
+.InfoGoal__Text {
     font-size: 1.5rem;
 }

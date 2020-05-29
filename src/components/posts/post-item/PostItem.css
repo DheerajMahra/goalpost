@@ -28,18 +28,18 @@
     }
 }
 
-.Post__head {
+.Post__Head {
     display: flex;
     align-items: center;
     margin-bottom: 1.5rem;
 }
 
-.Post__userimg {
+.Post__UserImg {
     border-radius: 50%;
     margin-right: 1rem;
 }
 
-.Post__username {
+.Post__Username {
     font-size: 1.2rem;
     padding: .5rem 1rem;
     font-weight: 600;
@@ -49,24 +49,24 @@
     margin-right: 1rem;
 }
 
-.Post__time {
+.Post__Time {
     font-size: 1.25rem;
     font-style: italic;
     color: var(--color-grey);
 }
 
-.Post__body {
+.Post__Body {
     font-size: 1.5rem;
     font-weight: 400;
     margin-bottom: 2rem;
 }
 
-.Post__extras {
+.Post__Extras {
     display: flex;
     position: absolute;
 }
 
-.Post__icon-box, .Post__tag {
+.Post__IconBox, .Post__Tag {
     font-size: 1.25rem;
     font-weight: 600;
     padding: .7rem 1.1rem;
@@ -75,31 +75,31 @@
     border-radius: 1rem;
 }
 
-.Post__icon-box {
+.Post__IconBox {
     margin-right: 1rem;
     cursor: pointer;
     transition: .1s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
 
-.Post__icon-box:active {
+.Post__IconBox:active {
     transform: scale(.9);
 }
 
-.Post__icon {
+.Post__Icon {
     font-size: 1.5rem;
     color: var(--color-red);
     margin-right: .7rem;
     transition: .1s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
 
-.Post__icon-box:active .Post__icon {
+.Post__IconBox:active .Post__Icon {
     transform: scale(1.2);
 }
 
-.Post__likes {
+.Post__Likes {
     font-weight: 600;
 }
 
-.Post__tag {
+.Post__Tag {
     color: var(--color-purple-m);
 }

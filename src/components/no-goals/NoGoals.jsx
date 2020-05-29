@@ -7,9 +7,9 @@ import Button from '../shared/button/Button'
 
 const NoGoals = () => {
     return (
-        <div className="No-goals">
+        <div className="NoGoals">
             <ImgBanner img={NoGoalImg}/>
-            <p className="No-goals__text">Nobody posted a goal today.</p>
+            <p className="NoGoals__Text">Nobody posted a goal today.</p>
             <Link to="/">
                 <Button>Create a goal</Button>
             </Link>

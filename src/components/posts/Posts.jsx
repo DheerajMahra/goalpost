@@ -1,7 +1,6 @@
 import React from 'react'
 import './Posts.css'
 import _ from 'lodash'
-
 import NoGoals from '../no-goals/NoGoals'
 import PostItem from './post-item/PostItem'
 import Loader from '../shared/loader/Loader'

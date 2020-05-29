@@ -9,7 +9,7 @@
     }
 }
 
-.Home__card-box {
+.CardBox {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -17,7 +17,7 @@
 
 /*Feature card*/
 
-.Feature__card {
+.IntroCard {
     background: var(--color-white);
     border-radius: var(--border-radius);
     padding: 2.2rem 2rem;
@@ -25,7 +25,7 @@
     margin-bottom: 3rem;
 }
 
-.Feature__tag {
+.IntroCard__Tag {
     color: var(--color-purple-m);
     background: var(--color-purple-l);
     display: inline-block;
@@ -35,13 +35,13 @@
     margin-bottom: 1rem;
 }
 
-.Feature__head {
+.IntroCard__Head {
     font-size: 2.2rem;
     font-weight: 400;
     margin-bottom: 1rem;
 }
 
-.Feature__body {
+.IntroCard__Body {
     font-size: 1.25rem;
     color: var(--color-grey);
     line-height: 1.5;
@@ -50,14 +50,14 @@
 
 /*Professional card*/
 
-.container {
+.Container {
     background: var(--color-white);
     padding: .7rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
 }
 
-.Professional__card {
+.HowCard {
     position: relative;
     background: var(--color-coffee-l);
     color: var(--color-coffee-d);
@@ -65,28 +65,28 @@
     padding: 3.2rem 2rem;
 }
 
-.Professional__head {
+.HowCard__Head {
     font-size: 1.7rem;
     font-weight: 600;
     margin-bottom: 1rem;
 }
 
-.Professional__body {
+.HowCard__Body {
     font-size: 1.25rem;
     line-height: 1.5;
     margin-bottom: 2rem;
 }
 
-.Professional__list {
+.HowCard__List {
     list-style-type: none;
     font-size: 1.25rem;
 }
 
-.Professional__item:not(:last-child) {
+.HowCard__Item:not(:last-child) {
     margin-bottom: 1.3rem;
 }
 
-.Professional__item span {
+.HowCard__Item span {
     margin-right: 1rem;
     color: var(--color-white);
     background: var(--color-green-d);

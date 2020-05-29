@@ -4,9 +4,8 @@ import db from '../../config/firebase'
 import _ from 'lodash'
 import { withRouter } from 'react-router-dom'
 import FormImg from '../../img/form-img.png'
-
-import Button from '../shared/button/Button'
-import ImgBanner from '../shared/img-banner/ImgBanner'
+import Button from '../../components/shared/button/Button'
+import ImgBanner from '../../components/shared/img-banner/ImgBanner'
 
 class Form extends React.Component {
 
@@ -95,47 +94,46 @@ class Form extends React.Component {
     render() {
 
         return (
-            <div className="Form-wrap">
+            <div className="FormBox">
 
                 <ImgBanner img={FormImg}/>
                 
                 <form className="Form" onSubmit={this.handleSubmit}>
                     
-                    <div className="Form-group">
+                    <div className="Form__Group">
                         <label
                             htmlFor="fullname"
-                            className="Form-label"
+                            className="Form__Label"
                         >Full Name</label>
                         <input
                             type="text"
                             id="fullname"
-                            className="Form-input"
+                            className="Form__Input"
                             value={this.state.fullname}
                             onChange={this.handleChange}
-                            required={true}
                         />
                     </div>
 
-                    <div className="Form-group">
+                    <div className="Form__Group">
                         <label
                             htmlFor="goal"
-                            className="Form-label"
+                            className="Form__Label"
                         >Goal</label>
                         <textarea
                             type="text"
                             id="goal"
-                            className="Form-textarea"
+                            className="Form__Textarea"
                             value={this.state.goal}
                             onChange={this.handleChange}>
                         </textarea>
                     </div>
 
-                    <div className="Form-group">
+                    <div className="Form__Group">
                         <label
-                            className="Form-label"
+                            className="Form__Label"
                         >Select Tag</label>
                         <select 
-                            className="Form-select"
+                            className="Form__Select"
                             value={this.state.tag}
                             onChange={this.handleTagChange}
                         >
@@ -157,7 +155,7 @@ class Form extends React.Component {
 
                     {
                         this.state.isError &&
-                        <p className="Form__error">*Fullname and goal are required.</p>
+                        <p className="Form__Error">*Fullname and goal are required.</p>
                     }
 
                     <Button click={this.handleSubmit}>Post your goal</Button>
