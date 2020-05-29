@@ -1,6 +1,6 @@
 .Posts {
     flex: 0 0 70%;
-    min-height: 100vh;
+    min-height: calc(100vh - 8rem);
     margin-right: 3rem;
     padding: 2rem;
     display: flex;

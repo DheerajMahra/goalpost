@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Goalpost",
+  "name": "Goalpost | Create your daily goals",
   "icons": [
     {
       "src": "favicon.ico",

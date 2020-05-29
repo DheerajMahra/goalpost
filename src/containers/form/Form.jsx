@@ -3,8 +3,10 @@ import './Form.css'
 import db from '../../config/firebase'
 import _ from 'lodash'
 import { withRouter } from 'react-router-dom'
+import FormImg from '../../img/form-img.png'
 
 import Button from '../shared/button/Button'
+import ImgBanner from '../shared/img-banner/ImgBanner'
 
 class Form extends React.Component {
 
@@ -95,11 +97,7 @@ class Form extends React.Component {
         return (
             <div className="Form-wrap">
 
-                <div className="Form-thumb">
-                    <div className="Thumb__wrap">
-                        
-                    </div>
-                </div>
+                <ImgBanner img={FormImg}/>
                 
                 <form className="Form" onSubmit={this.handleSubmit}>
                     
@@ -135,7 +133,7 @@ class Form extends React.Component {
                     <div className="Form-group">
                         <label
                             className="Form-label"
-                        >Select tag</label>
+                        >Select Tag</label>
                         <select 
                             className="Form-select"
                             value={this.state.tag}
@@ -159,7 +157,7 @@ class Form extends React.Component {
 
                     {
                         this.state.isError &&
-                        <p className="Form__error">Fullname and goal are required.</p>
+                        <p className="Form__error">*Fullname and goal are required.</p>
                     }
 
                     <Button click={this.handleSubmit}>Post your goal</Button>

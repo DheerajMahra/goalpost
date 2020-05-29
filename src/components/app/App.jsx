@@ -3,7 +3,7 @@ import './App.css'
 import { Switch, Route } from 'react-router-dom'
 import ScrollToTop from '../shared/ScrollToTop'
 import Home from '../home/Home'
-import Feed from '../feed/Feed'
+import Feed from '../../containers/feed/Feed'
 
 const App = () => {
 

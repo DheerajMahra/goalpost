@@ -3,7 +3,7 @@ import './Feed.css'
 import db from '../../config/firebase.js'
 import moment from 'moment'
 
-import Posts from '../posts/Posts'
+import Posts from '../../components/posts/Posts'
 
 class Feed extends React.Component {
 
@@ -17,7 +17,8 @@ class Feed extends React.Component {
             users: {},
             tags: {},
             totalCount: 0,
-            isLoading: true
+            isLoading: true,
+            noGoals: false
         }
     }
     
@@ -26,18 +27,6 @@ class Feed extends React.Component {
         this.fetchTags()
         this.fetchUsers()
         this.addChangeListener()
-
-        db.ref().child('/tags').set({
-            0: {
-                id:0, text: "Angular"
-            },
-            1: {
-                id: 1, text: "Vue"
-            },
-            2: {
-                id: 2, text: "React"
-            }
-        })
     }
 
     fetchTags = () => {
@@ -47,15 +36,33 @@ class Feed extends React.Component {
         })
     }
 
+    checkCreatedAt = createdAt => {
+        let created = moment(createdAt).format('DD')
+        let today = moment().format('DD')
+        return created === today
+    }
+
     fetchUsers = () => {
         
+        this.usersRef.once('value', snap => {
+            if(snap.val() === null) {
+                this.setState({ isLoading: false, noGoals: true})
+            }
+        })
+
         this.userAddedListener = this.usersRef.on('child_added', snap => {
 
-            this.setState(prevState => ({
-                users: {[snap.val().id]: snap.val(), ...prevState.users},
-                totalCount: ++prevState.totalCount,
-                isLoading: false
-            }))
+            if(this.checkCreatedAt(snap.val().createdAt)) {
+
+                this.setState(prevState => ({
+                    users: {[snap.val().id]: snap.val(), ...prevState.users},
+                    totalCount: ++prevState.totalCount,
+                    isLoading: false,
+                    noGoals: false
+                }))
+            } else {
+                db.ref().child(`/users/${snap.val().id}`).remove()
+            }
         })
     }
 
@@ -86,6 +93,7 @@ class Feed extends React.Component {
 
     render(){
         //console.log('[Feed.jsx] RENDERED')
+
         return (
             
             <div className="Feed">
@@ -95,6 +103,7 @@ class Feed extends React.Component {
                     tags={this.state.tags}
                     updateLikes={this.updateLikes}
                     isLoading={this.state.isLoading}
+                    noGoals={this.state.noGoals}
                 />
 
                 <div className="Stats">

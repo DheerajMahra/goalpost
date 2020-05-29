@@ -1,6 +1,7 @@
 .Form-wrap {
     flex: 0 0 70%;
     margin-right: 3rem;
+    padding: 2rem;
     background: var(--color-white);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
@@ -11,47 +12,6 @@
         margin-right: 0;
         margin-bottom: 3rem;
     }
-}
-
-.Form-thumb {
-    position: relative;
-    height: 15rem;
-    color: var(--color-coffee-d);
-    background: var(--color-coffee-l);
-    border-radius: var(--border-radius);
-    margin: .7rem;
-    background-image: url('../../img/mann.png');
-    background-repeat: no-repeat;
-    background-size: 30%;
-    background-position: 90% 50%;
-}   
-
-@media (max-width: 425px) {
-    .Form-thumb {
-        background-size: 60%;
-        background-position: 100% -50%;
-    }
-}
-
-.Thumb__wrap {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 5%;
-}
-
-.Thumb__head {
-    font-size: 2.7rem;
-    font-weight: 400;
-    margin-bottom: .5rem;
-}
-
-.Thumb__body {
-    font-size: 1.4rem;
-}
-
-.Form {
-    padding: 2rem;
 }
 
 .Form-group {
