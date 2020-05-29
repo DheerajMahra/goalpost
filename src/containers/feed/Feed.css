@@ -44,6 +44,7 @@
 
 .StatsCard__Info {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .InfoGoal {
@@ -53,6 +54,15 @@
     background: var(--color-purple-l);
     padding: 2rem;
     border-radius: 1rem;
+}
+
+.a {
+    background: var(--color-coffee-l);
+    color: var(--color-coffee-d);
+}
+
+.InfoGoal:not(:last-child) {
+    margin-right: 1rem;
 }
 
 .InfoGoal__Total {

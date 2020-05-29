@@ -14,7 +14,7 @@ class Feed extends React.Component {
 
         this.state = {
             users: {},
-            tags: {},
+            tags: [],
             totalCount: 0,
             isLoading: true,
             noGoals: false
@@ -26,11 +26,12 @@ class Feed extends React.Component {
         this.fetchTags()
         this.fetchUsers()
         this.addChangeListener()
-    }
 
+    }
+    
     fetchTags = () => {
 
-        this.tagsRef.once('value', snap => {
+        this.tagsRef.on('value', snap => {
             this.setState({ tags: snap.val() })
         })
     }
@@ -60,7 +61,14 @@ class Feed extends React.Component {
                     noGoals: false
                 }))
             } else {
-                db.ref().child(`/users/${snap.val().id}`).remove()
+                //delete user after the end of the day
+                //make tag count to 0 again
+                let updates = {}
+                updates[`/users/${snap.val().id}`] = null
+                if(snap.val().tag !== '-1') {
+                    updates[`/tags/${snap.val().tag}/count`] = 0
+                }
+                db.ref().update(updates)
             }
         })
     }
@@ -83,6 +91,20 @@ class Feed extends React.Component {
                 }
             }))
         })
+    }
+
+    getTopTag = () => {
+
+        let topTag = this.state.tags.reduce((topTag, currTag) => {
+
+            if(currTag.count >= topTag.count) {
+                return currTag
+            } else {
+                return topTag
+            }
+        }, {count: 0})
+        
+        return topTag.count === 0 ? "NA" : topTag.text
     }
 
     componentWillUnmount() {
@@ -114,7 +136,11 @@ class Feed extends React.Component {
                     <div className="StatsCard__Info">
                         <p className="InfoGoal">
                             <span className="InfoGoal__Total">{this.state.totalCount}</span>
-                            <span className="InfoGoal__Text">Goals commited</span>
+                            <span className="InfoGoal__Text">Commitments</span>
+                        </p>
+                        <p className="InfoGoal a">
+                            <span className="InfoGoal__Total">{this.getTopTag()}</span>
+                            <span className="InfoGoal__Text">Trending</span>
                         </p>
                     </div>
                 </div>

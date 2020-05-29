@@ -57,10 +57,17 @@ class Form extends React.Component {
                     tag: '',
                     isError: false
                 })
-
                 this.props.history.push('/feed')
             }
         })
+    }
+
+    incrementTagCount = tagId => {
+        
+        if(tagId === '-1') return
+
+        const tagsRef = db.ref().child(`/tags/${tagId}`)
+        tagsRef.update({ count: this.state.availableTags[tagId].count + 1 })
     }
 
     checkValidity = (fullname, goal) => (
@@ -86,6 +93,7 @@ class Form extends React.Component {
             }
 
             this.storeUserData(newUserNode, userData)
+            this.incrementTagCount(tag)
         } else{
             this.setState({ isError: true })
         }
