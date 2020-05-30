@@ -38,7 +38,7 @@ const Home = () => {
                             <span>&#10003;</span>Get realtime motivation
                         </li>
                         <li className="HowCard__Item">
-                            <span>&#10003;</span>Goal are deleted as the day ends
+                            <span>&#10003;</span>Goals are deleted as the day ends
                         </li>
                     </ul>
                 </div>
