@@ -7,7 +7,7 @@
     box-shadow: var(--shadow);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 850px) {
     .FormBox{
         margin-right: 0;
         margin-bottom: 3rem;
@@ -54,6 +54,16 @@
 
 .Form__Input:focus, .Form__Textarea:focus, .Form__Select:focus {
     outline: none;
+}
+
+.Form__TagRequest {
+    font-size: 1.15rem;
+    margin-top: 1rem;
+    color: var(--color-grey);
+}
+
+.Form__TagRequest a {
+    text-decoration: none;
 }
 
 .Form__Error {

@@ -3,7 +3,7 @@
     display: flex;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 850px) {
     .Home {
         flex-direction: column;
     }

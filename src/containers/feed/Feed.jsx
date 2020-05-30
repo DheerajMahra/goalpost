@@ -1,5 +1,6 @@
 import React from 'react'
 import './Feed.css'
+import _ from 'lodash'
 import db from '../../config/firebase.js'
 import moment from 'moment'
 import Posts from '../../components/posts/Posts'
@@ -14,7 +15,7 @@ class Feed extends React.Component {
 
         this.state = {
             users: {},
-            tags: [],
+            tags: {},
             totalCount: 0,
             isLoading: true,
             noGoals: false
@@ -94,8 +95,8 @@ class Feed extends React.Component {
     }
 
     getTopTag = () => {
-
-        let topTag = this.state.tags.reduce((topTag, currTag) => {
+        
+        let topTag = _.values(this.state.tags).reduce((topTag, currTag) => {
 
             if(currTag.count >= topTag.count) {
                 return currTag
@@ -103,7 +104,6 @@ class Feed extends React.Component {
                 return topTag
             }
         }, {count: 0})
-        
         return topTag.count === 0 ? "NA" : topTag.text
     }
 
@@ -134,13 +134,13 @@ class Feed extends React.Component {
                     <h2 className="StatsCard__Head">{moment().format("MMM Do[,] YYYY")}</h2>
                     <p className="StatsCard__Body">Goalpost tracks your goal for the day so that people can see what you are working on today.</p>
                     <div className="StatsCard__Info">
-                        <p className="InfoGoal">
-                            <span className="InfoGoal__Total">{this.state.totalCount}</span>
-                            <span className="InfoGoal__Text">Commitments</span>
+                        <p className="InfoBox">
+                            <span className="InfoBox__Total">{this.state.totalCount}</span>
+                            <span className="InfoBox__Text">Commitments</span>
                         </p>
-                        <p className="InfoGoal a">
-                            <span className="InfoGoal__Total">{this.getTopTag()}</span>
-                            <span className="InfoGoal__Text">Trending</span>
+                        <p className="InfoBox InfoBox--coffee">
+                            <span className="InfoBox__Total">{this.getTopTag()}</span>
+                            <span className="InfoBox__Text">Trending</span>
                         </p>
                     </div>
                 </div>

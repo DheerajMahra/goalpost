@@ -23,7 +23,7 @@ const Posts = props => {
             <PostItem
                 key={user.id}
                 { ...user }
-                tag={user.tag !== '-1' && tags[user.tag].text}
+                tag={user.tag !== 'NA' && tags[user.tag].text}
                 updateLikes={updateLikes}
             />
         ))

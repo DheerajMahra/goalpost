@@ -12,7 +12,7 @@ class Form extends React.Component {
     state = {
         fullname: '',
         goal: '',
-        tag: '-1',
+        tag: 'NA',
         isError: false,
         availableTags: []
     }
@@ -26,7 +26,7 @@ class Form extends React.Component {
 
         tagsRef.once('value', snap => {
             this.setState({
-                availableTags: _.values(snap.val())
+                availableTags: snap.val()
             })
         })
     }
@@ -54,7 +54,7 @@ class Form extends React.Component {
                 this.setState({ 
                     fullname: '',
                     goal: '',
-                    tag: '',
+                    tag: 'NA',
                     isError: false
                 })
                 this.props.history.push('/feed')
@@ -62,12 +62,12 @@ class Form extends React.Component {
         })
     }
 
-    incrementTagCount = tagId => {
+    incrementTagCount = tag => {
         
-        if(tagId === '-1') return
+        if(tag === 'NA') return
 
-        const tagsRef = db.ref().child(`/tags/${tagId}`)
-        tagsRef.update({ count: this.state.availableTags[tagId].count + 1 })
+        const tagsRef = db.ref().child(`/tags/${tag}`)
+        tagsRef.update({ count: this.state.availableTags[tag].count + 1 })
     }
 
     checkValidity = (fullname, goal) => (
@@ -147,18 +147,19 @@ class Form extends React.Component {
                         >
                         <option
                             defaultValue
-                            value="-1"
+                            value="NA"
                         >Nothing selected</option>
                         {
-                            this.state.availableTags.map(tag => (
+                            _.values(this.state.availableTags).map(tag => (
                                 <option
-                                    key={tag.id}
-                                    value={tag.id}
+                                    key={tag.text}
+                                    value={tag.text}
                                 >{tag.text}
                                 </option>
                             ))
                         }
                         </select>
+                        <p className="Form__TagRequest">Tag missing? Request your tag <a href="https://forms.gle/CXdxtCSbJsDNHrSc9" target="_blank">here</a></p>
                     </div>
 
                     {
