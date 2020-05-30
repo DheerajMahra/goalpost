@@ -3,7 +3,7 @@
     display: flex;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1067px) {
     .Feed {
         flex-direction: column;
     }
@@ -15,7 +15,7 @@
     border-radius: var(--border-radius);
     padding: 2.2rem 2rem;
     box-shadow: var(--shadow);
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .StatsCard__Tag {

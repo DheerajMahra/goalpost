@@ -1,0 +1,28 @@
+.BackBtn {
+    position: fixed;
+    bottom: 4rem;
+    right: 4rem;
+    font-size: 2rem;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    color: var(--color-white);
+    background: var(--color-purple-m);
+}
+
+@media (max-width: 600px) {
+    .BackBtn {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.4rem;
+        bottom: 2rem;
+        right: 2rem;
+    }
+}
+
+.BackBtn__Icon {
+    position: absolute;
+    left: 46%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

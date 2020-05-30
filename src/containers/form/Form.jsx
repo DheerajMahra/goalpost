@@ -167,8 +167,7 @@ class Form extends React.Component {
                         <p className="Form__Error">*Fullname and goal are required.</p>
                     }
 
-                    <Button click={this.handleSubmit}>Post your goal</Button>
-
+                    <Button click={this.handleSubmit}>Create goal</Button>
                 </form>
 
             </div>

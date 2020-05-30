@@ -1,9 +1,10 @@
 .Home {
     flex-grow: 1;
     display: flex;
+    min-height: calc(100vh - 8rem);
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1067px) {
     .Home {
         flex-direction: column;
     }
@@ -15,14 +16,19 @@
     flex-direction: column;
 }
 
-/*Feature card*/
+/*Intro card*/
 
 .IntroCard {
     background: var(--color-white);
     border-radius: var(--border-radius);
     padding: 2.2rem 2rem;
     box-shadow: var(--shadow);
-    margin-bottom: 3rem;
+}
+
+@media (max-width: 1067px) {
+    .IntroCard {
+        margin-bottom: 2rem;
+    }
 }
 
 .IntroCard__Tag {
@@ -48,45 +54,17 @@
     margin-bottom: 2rem;
 }
 
-/*Professional card*/
-
-.Container {
-    background: var(--color-white);
-    padding: .7rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-}
-
-.HowCard {
-    position: relative;
-    background: var(--color-coffee-l);
-    color: var(--color-coffee-d);
-    border-radius: var(--border-radius);
-    padding: 3.2rem 2rem;
-}
-
-.HowCard__Head {
-    font-size: 1.7rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.HowCard__Body {
+.IntroCard__List {
+    list-style-type: none;
     font-size: 1.25rem;
-    line-height: 1.5;
     margin-bottom: 2rem;
 }
 
-.HowCard__List {
-    list-style-type: none;
-    font-size: 1.25rem;
-}
-
-.HowCard__Item:not(:last-child) {
+.IntroCard__Item:not(:last-child) {
     margin-bottom: 1.3rem;
 }
 
-.HowCard__Item span {
+.IntroCard__Item span {
     margin-right: 1rem;
     color: var(--color-white);
     background: var(--color-green-d);

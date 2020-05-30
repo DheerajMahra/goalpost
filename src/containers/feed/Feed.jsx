@@ -4,6 +4,7 @@ import _ from 'lodash'
 import db from '../../config/firebase.js'
 import moment from 'moment'
 import Posts from '../../components/posts/Posts'
+import Back from '../../components/shared/back/Back'
 
 class Feed extends React.Component {
 
@@ -146,7 +147,7 @@ class Feed extends React.Component {
                 </div>
 
                 </div>
-
+                <Back to="/"/>
             </div>
         )
     }
