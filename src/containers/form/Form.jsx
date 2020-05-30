@@ -159,7 +159,7 @@ class Form extends React.Component {
                             ))
                         }
                         </select>
-                        <p className="Form__TagRequest">Tag missing? Request your tag <a href="https://forms.gle/CXdxtCSbJsDNHrSc9" target="_blank">here</a></p>
+                        <p className="Form__TagRequest">Tag missing? Request your tag <a href="https://forms.gle/CXdxtCSbJsDNHrSc9" rel="noopener noreferrer" target="_blank">here</a></p>
                     </div>
 
                     {

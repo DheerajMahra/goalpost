@@ -1,20 +1,22 @@
 import React from 'react'
 import './App.css'
-import { Switch, Route } from 'react-router-dom'
-import ScrollToTop from '../shared/ScrollToTop'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from '../home/Home'
 import Feed from '../../containers/feed/Feed'
+import ScrollToTop from '../shared/ScrollToTop'
 
 const App = () => {
 
     return (
-        <div className="App">
-            <ScrollToTop />
-            <Switch>
-                <Route exact path="/" component={Home}/>
-                <Route path="/feed" component={Feed}/>
-            </Switch>
-        </div>
+        <Router>
+        <ScrollToTop />
+            <div className="App">
+                <Switch>
+                    <Route exact path="/" component={Home}/>
+                    <Route path="/feed" component={Feed}/>
+                </Switch>
+            </div>
+        </Router>
     )
 }
 

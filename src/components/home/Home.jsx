@@ -26,7 +26,7 @@ const Home = () => {
                 <div className="Container">
                 <div className="HowCard">
                     <h2 className="HowCard__Head">How it works</h2>
-                    <p className="HowCard__Body">This plan is for those who have a team already and running a large business.</p>
+                    <p className="HowCard__Body">It's a fact that making daily goals improve focus and make you productive.</p>
                     <ul className="HowCard__List">
                         <li className="HowCard__Item">
                             <span>&#10003;</span>Post your today's tech goal
@@ -36,6 +36,9 @@ const Home = () => {
                         </li>
                         <li className="HowCard__Item">
                             <span>&#10003;</span>Get realtime motivation
+                        </li>
+                        <li className="HowCard__Item">
+                            <span>&#10003;</span>Goal are deleted as the day ends
                         </li>
                     </ul>
                 </div>

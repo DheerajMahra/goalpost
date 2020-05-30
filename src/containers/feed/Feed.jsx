@@ -66,7 +66,7 @@ class Feed extends React.Component {
                 //make tag count to 0 again
                 let updates = {}
                 updates[`/users/${snap.val().id}`] = null
-                if(snap.val().tag !== '-1') {
+                if(snap.val().tag !== 'NA') {
                     updates[`/tags/${snap.val().tag}/count`] = 0
                 }
                 db.ref().update(updates)
@@ -132,7 +132,7 @@ class Feed extends React.Component {
                 <div className="StatsCard">
                     <span className="StatsCard__Tag">{moment().format('dddd')}</span>
                     <h2 className="StatsCard__Head">{moment().format("MMM Do[,] YYYY")}</h2>
-                    <p className="StatsCard__Body">Goalpost tracks your goal for the day so that people can see what you are working on today.</p>
+                    <p className="StatsCard__Body">All who have accomplished great things have had a great aim in mind. Keep yourself motivated to achieve your target for the day.</p>
                     <div className="StatsCard__Info">
                         <p className="InfoBox">
                             <span className="InfoBox__Total">{this.state.totalCount}</span>

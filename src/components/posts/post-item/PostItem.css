@@ -34,6 +34,11 @@
     margin-bottom: 1.5rem;
 }
 
+.Head__TextBox {
+    display: flex;
+    align-items: center;
+}
+
 .Post__UserImg {
     border-radius: 50%;
     margin-right: 1rem;
@@ -53,12 +58,13 @@
     font-size: 1.25rem;
     font-style: italic;
     color: var(--color-grey);
+    margin-bottom: 1.5rem;
 }
 
 .Post__Body {
     font-size: 1.5rem;
     font-weight: 400;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .Post__Extras {
@@ -98,6 +104,10 @@
 
 .Post__Likes {
     font-weight: 600;
+}
+
+.Post__Likes::selection {
+    background: none;
 }
 
 .Post__Tag {

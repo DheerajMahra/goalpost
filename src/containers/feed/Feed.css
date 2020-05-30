@@ -41,6 +41,11 @@
     line-height: 1.5;
 }
 
+.StatsCard__DeleteTime {
+    font-size: 1.25rem;
+    color: var(--color-grey);
+}
+
 .StatsCard__Info {
     display: flex;
     flex-wrap: wrap;
