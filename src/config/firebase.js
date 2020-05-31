@@ -1,17 +1,20 @@
 import firebase from 'firebase/app'
 import 'firebase/database'
+import 'firebase/analytics'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDoru_aQqh_iB8Evw_JDd12pXCVTxoQflk",
-    authDomain: "goalpost-34533.firebaseapp.com",
-    databaseURL: "https://goalpost-34533.firebaseio.com",
-    projectId: "goalpost-34533",
-    storageBucket: "goalpost-34533.appspot.com",
-    messagingSenderId: "962262456686",
-    appId: "1:962262456686:web:d5db28cc0f9cea226e097f"
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID,
+    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
 firebase.initializeApp(firebaseConfig);
+firebase.analytics()
 
 const db = firebase.database()
 
