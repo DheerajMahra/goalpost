@@ -92,7 +92,7 @@
 }
 
 .Post__Icon {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--color-red);
     margin-right: .7rem;
     transition: .1s cubic-bezier(0.6, -0.28, 0.735, 0.045);

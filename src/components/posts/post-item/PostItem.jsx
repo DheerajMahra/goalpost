@@ -2,7 +2,7 @@ import React from 'react'
 import './PostItem.css'
 import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faFireAlt } from '@fortawesome/free-solid-svg-icons'
 
 const PostItem = props => {
 
@@ -18,7 +18,7 @@ const PostItem = props => {
             <p className="Post__Time">posted {moment(createdAt).fromNow()}</p>
             <div className="Post__Extras">
                 <div className="Post__IconBox" onClick={() => updateLikes(id)}>
-                    <FontAwesomeIcon className="Post__Icon" icon={faHeart} />
+                    <FontAwesomeIcon className="Post__Icon" icon={faFireAlt} />
                     <span className="Post__Likes">{likes}</span>
                 </div>
                 {
