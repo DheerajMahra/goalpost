@@ -13,7 +13,7 @@ All the goals are visible to everyone so that they feel motivated after reading 
 - Create your today's tech goal
 - See goals created by others for the day
 - See total goals created and today's trending technology
-- Give hearts to goals
+- Give reacts to goals
 - Goals are automatically deleted after the end of the day
 
 ## Tech Stack
